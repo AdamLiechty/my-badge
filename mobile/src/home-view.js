@@ -13,12 +13,13 @@ export default class HomeView extends PureComponent {
   }
 
   render() {
+    const { suggestedTitle } = this.props
     const { currentEvent, currentUser } = this.state
     if (!currentUser || !currentEvent) return null
 
     return (
       <View>
-        <TitleBar title="My Badge" client={client} />
+        <TitleBar title={suggestedTitle || 'My Badge'} client={client} />
         <View style={s.container}>
           <QRCode
             style={s.qrcode}
